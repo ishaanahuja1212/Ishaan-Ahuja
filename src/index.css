@@ -1,0 +1,41 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  
+  --color-paper: #F5F2ED;
+  --color-ink: #111111;
+  --color-accent: #C46A2B;
+  --color-accent-dark: #B85C38;
+}
+
+@layer base {
+  body {
+    @apply bg-paper text-ink font-sans selection:bg-accent selection:text-white;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+.torn-edge-top {
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l30 20 40-10 50 30 60-20 70 40 80-30 90 50 100-40 110 60 120-50 130 70 140-60 150 80 160-70 170 90 180-80 190 100 200-90 210 110 220-100 230 120 240-110 250 130 260-120 270 140 280-130 290 150 300-140V120H0V0z' fill='%23000'/%3E%3C/svg%3E");
+  mask-size: 100% 100%;
+}
+
+.torn-edge-bottom {
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 120l30-20 40 10 50-30 60 20 70-40 80 30 90-50 100 40 110-60 120 50 130-70 140 60 150-80 160 70 170-90 180 80 190-100 200 90 210-110 220 100 230-120 240 110 250-130 260 120 270-140 280 130 290-150 300 140V0H0v120z' fill='%23000'/%3E%3C/svg%3E");
+  mask-size: 100% 100%;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.grid-border {
+  @apply border-ink/20;
+}
