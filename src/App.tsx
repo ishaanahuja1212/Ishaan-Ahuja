@@ -33,7 +33,7 @@ const PROJECTS: Project[] = [
     id: 2,
     title: "MIRANDA",
     category: "Digital Media",
-    description: "Interactive digital experience for a contemporary art gallery in Amsterdam.",
+    description: "Interactive digital experience for a contemporary art gallery.",
     image: "https://picsum.photos/seed/miranda/1200/800",
     year: "2023",
     featured: true
@@ -95,7 +95,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-paper/80 backdrop-blur-sm border-b border-ink/10 px-6 py-4 flex justify-between items-center">
       <div className="text-xl font-serif font-bold tracking-tighter uppercase">
-        Edoardo Smerilli
+        Ishaan Ahuja
       </div>
       
       {/* Desktop Menu */}
@@ -151,7 +151,7 @@ const Hero = () => {
             className="mt-8 max-w-xl"
           >
             <p className="text-lg md:text-xl font-light leading-relaxed">
-              Amsterdam-based independent Designer & Developer with a focus on Art direction, Motion and Branding. 
+              Independent Designer & Developer with a focus on Art direction, Motion and Branding. 
               Crafting digital experiences with a vintage editorial soul.
             </p>
             <div className="mt-8 flex gap-6">
@@ -282,13 +282,13 @@ const About = () => {
               <div>
                 <h4 className="text-xs font-bold uppercase tracking-widest mb-4 opacity-40">Location</h4>
                 <p className="text-sm font-medium uppercase tracking-wider">
-                  Amsterdam, NL <br />
+                  Based in India <br />
                   Available Worldwide
                 </p>
                 <h4 className="text-xs font-bold uppercase tracking-widest mt-8 mb-4 opacity-40">Education</h4>
                 <p className="text-sm font-medium uppercase tracking-wider">
-                  Digital Media Student <br />
-                  Royal Academy of Art
+                  Graphic Design & Digital Media Student <br />
+                  University of Design
                 </p>
               </div>
             </div>
@@ -375,7 +375,7 @@ const Contact = () => {
       </h2>
       
       <div className="flex flex-col md:flex-row justify-center gap-8 md:gap-16 mt-12">
-        <a href="mailto:hello@edoardo.com" className="group flex flex-col items-center gap-4">
+        <a href="mailto:ishaanahuja1212@gmail.com" className="group flex flex-col items-center gap-4">
           <div className="w-16 h-16 rounded-full border border-ink/20 flex items-center justify-center group-hover:bg-ink group-hover:text-paper transition-all">
             <Mail size={24} />
           </div>
@@ -403,7 +403,7 @@ const Footer = () => {
     <footer className="py-12 px-6 border-t border-ink/10">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="text-sm font-bold uppercase tracking-widest">
-          © 2024 Edoardo Smerilli
+          © 2024 Ishaan Ahuja
         </div>
         <div className="flex gap-8 text-xs font-medium uppercase tracking-widest opacity-60">
           <a href="#" className="hover:text-accent transition-colors">Privacy Policy</a>
