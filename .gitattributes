@@ -1,0 +1,9 @@
+# Force binary handling for images and videos to prevent corruption
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.mp4 binary
+*.mov binary
+*.webm binary
+*.pdf binary

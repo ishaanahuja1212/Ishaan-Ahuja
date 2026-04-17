@@ -26,7 +26,7 @@ const PROJECTS: Project[] = [
     title: "LIGHT & SHADOW",
     category: "Photography",
     description: "An exploration of natural light and urban architecture through high-contrast black and white photography.",
-    image: "/specs-bw.jpg",
+    image: "/light-shadow-main.jpg",
     year: "2024",
     featured: true
   },
@@ -36,7 +36,7 @@ const PROJECTS: Project[] = [
     category: "AI Short Film",
     description: "A compelling short cinematic experience generated and edited using cutting-edge AI tools. Exploring the intersection of human emotion and machine learning.",
     image: "https://picsum.photos/seed/aifilm/1200/800",
-    video: "/ai-short-film.mp4",
+    video: "/artificial-soul-video.mp4",
     year: "2024",
     featured: true
   },
@@ -54,7 +54,7 @@ const PROJECTS: Project[] = [
     title: "DIWALI DIYA",
     category: "Photography",
     description: "Capturing the serene warmth and spiritual resonance of a traditional Diya, focusing on the dance between flame and shadow.",
-    image: "/diwali-diya.jpg",
+    image: "/diwali-main.jpg",
     year: "2024"
   },
   {
@@ -62,7 +62,7 @@ const PROJECTS: Project[] = [
     title: "HAPPY MEAL",
     category: "Photography",
     description: "A candid moment of joy found in the simple pleasure of a meal, highlighting colors and textures that evoke comfort.",
-    image: "/happy-meal.jpg",
+    image: "/meal-main.jpg",
     year: "2024"
   },
   {
@@ -70,7 +70,7 @@ const PROJECTS: Project[] = [
     title: "SOOTHING TOUCH",
     category: "Photography",
     description: "A visual representation of healing and empathy, focusing on the power of connection in a complex world.",
-    image: "/soothing-touch.jpg",
+    image: "/touch-main.jpg",
     year: "2024"
   },
   {
@@ -78,7 +78,7 @@ const PROJECTS: Project[] = [
     title: "DISCO VIBES",
     category: "Photography",
     description: "Capturing the energy and vibrant colors of urban nightlife through a lens that emphasizes motion and mood.",
-    image: "/disco-vibes.jpeg",
+    image: "/disco-main.jpeg",
     year: "2024"
   }
 ];
@@ -180,7 +180,7 @@ const Hero = () => {
             className="relative aspect-[3/4] bg-ink/5 overflow-hidden border border-ink/10 shadow-2xl"
           >
             <img 
-              src="/specs.jpg" 
+              src="/light-shadow-main.jpg" 
               alt="Ishaan's Photography - Specs" 
               className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
               referrerPolicy="no-referrer"
@@ -231,6 +231,12 @@ const FeaturedWork = ({ onProjectClick }: { onProjectClick: (p: Project) => void
                   alt={project.title} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    if (!target.src.includes('picsum.photos')) {
+                       target.src = `https://picsum.photos/seed/${project.id}/800/1000`;
+                    }
+                  }}
                 />
                 <div className="absolute inset-0 bg-ink/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <span className="px-6 py-3 border border-paper text-sm font-bold uppercase tracking-widest">View Project</span>
@@ -265,14 +271,14 @@ const About = () => {
           </h2>
           <div className="aspect-square bg-medium/10 overflow-hidden border border-ink/10 flex items-center justify-center">
             <img 
-              src="/about-ishaan.jpg" 
+              src="/ishaan-main.jpg" 
               alt="Ishaan Ahuja" 
               className="w-full h-full object-cover block grayscale hover:grayscale-0 transition-all duration-700"
               referrerPolicy="no-referrer"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
                 target.src = "https://picsum.photos/seed/ishaan/800/800";
-                console.error("Personal photo failed to load. Please ensure about-ishaan.jpg is uploaded to the public folder.");
+                console.error("Personal photo failed to load. Please ensure ishaan-main.jpg is uploaded to the public folder.");
               }}
             />
           </div>
@@ -500,6 +506,12 @@ export default function App() {
                       alt={selectedProject.title} 
                       className="w-full h-full object-cover"
                       referrerPolicy="no-referrer"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        if (!target.src.includes('picsum.photos')) {
+                          target.src = `https://picsum.photos/seed/${selectedProject.id}-modal/1200/800`;
+                        }
+                      }}
                     />
                   )}
                 </div>
