@@ -26,7 +26,7 @@ const PROJECTS: Project[] = [
     title: "LIGHT & SHADOW",
     category: "Photography",
     description: "An exploration of natural light and urban architecture through high-contrast black and white photography.",
-    image: "/specs.JPG",
+    image: "/specs.jpg",
     year: "2024",
     featured: true
   },
@@ -36,7 +36,7 @@ const PROJECTS: Project[] = [
     category: "AI Short Film",
     description: "A compelling short cinematic experience generated and edited using cutting-edge AI tools. Exploring the intersection of human emotion and machine learning.",
     image: "https://picsum.photos/seed/aifilm/1200/800",
-    video: "/AI Short Flilm - Final Output.mp4",
+    video: "/ai-short-film.mp4",
     year: "2024",
     featured: true
   },
@@ -45,7 +45,7 @@ const PROJECTS: Project[] = [
     title: "ACM BMU STUDENT CHAPTER",
     category: "Logo Design & Branding",
     description: "A clean, modern brand identity designed for the ACM Student Chapter at BMU, balancing academic professionalism with a tech-forward aesthetic.",
-    image: "/ACM BMU - Student Chapter logo.PNG",
+    image: "/acm-bmu-logo.png",
     year: "2024",
     featured: true
   },
@@ -54,7 +54,7 @@ const PROJECTS: Project[] = [
     title: "DIWALI DIYA",
     category: "Photography",
     description: "Capturing the serene warmth and spiritual resonance of a traditional Diya, focusing on the dance between flame and shadow.",
-    image: "/Diwali_Diya_IMG_1266.JPG",
+    image: "/diwali-diya.jpg",
     year: "2024"
   },
   {
@@ -62,7 +62,7 @@ const PROJECTS: Project[] = [
     title: "HAPPY MEAL",
     category: "Photography",
     description: "A candid moment of joy found in the simple pleasure of a meal, highlighting colors and textures that evoke comfort.",
-    image: "/Happy_Meal.JPG",
+    image: "/happy-meal.jpg",
     year: "2024"
   },
   {
@@ -70,7 +70,7 @@ const PROJECTS: Project[] = [
     title: "SOOTHING TOUCH",
     category: "Photography",
     description: "A visual representation of healing and empathy, focusing on the power of connection in a complex world.",
-    image: "/Soothing_Touch_Heals_The_World.JPG",
+    image: "/soothing-touch.jpg",
     year: "2024"
   },
   {
@@ -78,7 +78,7 @@ const PROJECTS: Project[] = [
     title: "DISCO VIBES",
     category: "Photography",
     description: "Capturing the energy and vibrant colors of urban nightlife through a lens that emphasizes motion and mood.",
-    image: "/547BA7B5-34A8-4CB7-970E-407CDE66337F.jpeg",
+    image: "/disco-vibes.jpeg",
     year: "2024"
   }
 ];
@@ -180,7 +180,7 @@ const Hero = () => {
             className="relative aspect-[3/4] bg-ink/5 overflow-hidden border border-ink/10 shadow-2xl"
           >
             <img 
-              src="/specs.JPG" 
+              src="/specs.jpg" 
               alt="Ishaan's Photography - Specs" 
               className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
               referrerPolicy="no-referrer"
@@ -265,14 +265,14 @@ const About = () => {
           </h2>
           <div className="aspect-square bg-medium/10 overflow-hidden border border-ink/10 flex items-center justify-center">
             <img 
-              src="/Dinosaur_IMG_0508.JPG" 
+              src="/about-ishaan.jpg" 
               alt="Ishaan Ahuja" 
               className="w-full h-full object-cover block grayscale hover:grayscale-0 transition-all duration-700"
               referrerPolicy="no-referrer"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
                 target.src = "https://picsum.photos/seed/ishaan/800/800";
-                console.error("Personal photo failed to load. Please ensure Dinosaur_IMG_0508.JPG is uploaded to the public folder and is not an empty file.");
+                console.error("Personal photo failed to load. Please ensure about-ishaan.jpg is uploaded to the public folder.");
               }}
             />
           </div>
@@ -490,6 +490,8 @@ export default function App() {
                       src={selectedProject.video} 
                       controls 
                       autoPlay
+                      muted
+                      playsInline
                       className="w-full h-full object-cover"
                     />
                   ) : (
