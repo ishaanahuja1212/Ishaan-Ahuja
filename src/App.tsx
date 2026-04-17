@@ -26,7 +26,7 @@ const PROJECTS: Project[] = [
     title: "LIGHT & SHADOW",
     category: "Photography",
     description: "An exploration of natural light and urban architecture through high-contrast black and white photography.",
-    image: "/specs.jpg",
+    image: "/specs-bw.jpg",
     year: "2024",
     featured: true
   },
