@@ -14,6 +14,7 @@ interface Project {
   category: string;
   description: string;
   image: string;
+  video?: string;
   year: string;
   featured?: boolean;
 }
@@ -22,54 +23,63 @@ interface Project {
 const PROJECTS: Project[] = [
   {
     id: 1,
-    title: "AVRO | KO",
-    category: "Branding & Identity",
-    description: "A luxury hospitality brand identity focused on minimal elegance and timeless typography.",
-    image: "https://picsum.photos/seed/avro/1200/800",
+    title: "LIGHT & SHADOW",
+    category: "Photography",
+    description: "An exploration of natural light and urban architecture through high-contrast black and white photography.",
+    image: "/specs.JPG",
+    year: "2024",
+    featured: true
+  },
+  {
+    id: 3,
+    title: "ARTIFICIAL SOUL",
+    category: "AI Short Film",
+    description: "A compelling short cinematic experience generated and edited using cutting-edge AI tools. Exploring the intersection of human emotion and machine learning.",
+    image: "https://picsum.photos/seed/aifilm/1200/800",
+    video: "/AI Short Flilm - Final Output.mp4",
     year: "2024",
     featured: true
   },
   {
     id: 2,
-    title: "MIRANDA",
-    category: "Digital Media",
-    description: "Interactive digital experience for a contemporary art gallery.",
-    image: "https://picsum.photos/seed/miranda/1200/800",
-    year: "2023",
-    featured: true
-  },
-  {
-    id: 3,
-    title: "PRADA®",
-    category: "E-Commerce Design",
-    description: "Concept store design exploring the intersection of high fashion and digital accessibility.",
-    image: "https://picsum.photos/seed/prada/1200/800",
+    title: "ACM BMU STUDENT CHAPTER",
+    category: "Logo Design & Branding",
+    description: "A clean, modern brand identity designed for the ACM Student Chapter at BMU, balancing academic professionalism with a tech-forward aesthetic.",
+    image: "/ACM BMU - Student Chapter logo.PNG",
     year: "2024",
     featured: true
   },
   {
     id: 4,
-    title: "LOFTGARTEN",
-    category: "Editorial Design",
-    description: "A quarterly magazine dedicated to urban gardening and sustainable architecture.",
-    image: "https://picsum.photos/seed/loft/800/1000",
-    year: "2023"
+    title: "DIWALI DIYA",
+    category: "Photography",
+    description: "Capturing the serene warmth and spiritual resonance of a traditional Diya, focusing on the dance between flame and shadow.",
+    image: "/Diwali_Diya_IMG_1266.JPG",
+    year: "2024"
   },
   {
     id: 5,
-    title: "THE PIXEL",
-    category: "UI/UX Design",
-    description: "A mobile application for creative professionals to manage their digital assets.",
-    image: "https://picsum.photos/seed/pixel/800/1000",
-    year: "2022"
+    title: "HAPPY MEAL",
+    category: "Photography",
+    description: "A candid moment of joy found in the simple pleasure of a meal, highlighting colors and textures that evoke comfort.",
+    image: "/Happy_Meal.JPG",
+    year: "2024"
   },
   {
     id: 6,
-    title: "DEDECT",
-    category: "Motion Graphics",
-    description: "Experimental motion piece exploring the concept of digital decay and reconstruction.",
-    image: "https://picsum.photos/seed/dedect/800/1000",
-    year: "2023"
+    title: "SOOTHING TOUCH",
+    category: "Photography",
+    description: "A visual representation of healing and empathy, focusing on the power of connection in a complex world.",
+    image: "/Soothing_Touch_Heals_The_World.JPG",
+    year: "2024"
+  },
+  {
+    id: 7,
+    title: "DISCO VIBES",
+    category: "Photography",
+    description: "Capturing the energy and vibrant colors of urban nightlife through a lens that emphasizes motion and mood.",
+    image: "/547BA7B5-34A8-4CB7-970E-407CDE66337F.jpeg",
+    year: "2024"
   }
 ];
 
@@ -151,8 +161,8 @@ const Hero = () => {
             className="mt-8 max-w-xl"
           >
             <p className="text-lg md:text-xl font-light leading-relaxed">
-              Independent Designer & Developer with a focus on Art direction, Motion and Branding. 
-              Crafting digital experiences with a vintage editorial soul.
+              BA Graphic Design & Digital Media Marketing student at Manipal Institute of Communication. 
+              Exploring the boundaries of visual storytelling through photography, digital art, and AI cinema.
             </p>
             <div className="mt-8 flex gap-6">
               <a href="#work" className="group flex items-center gap-2 text-sm font-bold uppercase tracking-widest border-b-2 border-ink pb-1 hover:text-accent hover:border-accent transition-all">
@@ -170,13 +180,13 @@ const Hero = () => {
             className="relative aspect-[3/4] bg-ink/5 overflow-hidden border border-ink/10 shadow-2xl"
           >
             <img 
-              src="https://picsum.photos/seed/designer/800/1200" 
-              alt="Portrait" 
+              src="/specs.JPG" 
+              alt="Ishaan's Photography - Specs" 
               className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
               referrerPolicy="no-referrer"
             />
             <div className="absolute bottom-4 right-4 vertical-text text-[10px] font-mono opacity-50 uppercase tracking-widest">
-              EST. 2024 / PORTFOLIO
+              EST. 2026 / PORTFOLIO
             </div>
           </motion.div>
         </div>
@@ -189,7 +199,7 @@ const Hero = () => {
   );
 };
 
-const FeaturedWork = () => {
+const FeaturedWork = ({ onProjectClick }: { onProjectClick: (p: Project) => void }) => {
   const featured = PROJECTS.filter(p => p.featured);
 
   return (
@@ -213,6 +223,7 @@ const FeaturedWork = () => {
               transition={{ delay: idx * 0.2 }}
               viewport={{ once: true }}
               className="group cursor-pointer"
+              onClick={() => onProjectClick(project)}
             >
               <div className="relative aspect-[4/5] overflow-hidden mb-6">
                 <img 
@@ -252,12 +263,17 @@ const About = () => {
           <h2 className="text-7xl md:text-9xl font-serif font-black uppercase leading-[0.8] mb-8">
             About <br /> <span className="text-accent italic">Me</span>
           </h2>
-          <div className="aspect-square bg-ink/5 overflow-hidden border border-ink/10">
+          <div className="aspect-square bg-medium/10 overflow-hidden border border-ink/10 flex items-center justify-center">
             <img 
-              src="https://picsum.photos/seed/about/800/800" 
-              alt="About" 
-              className="w-full h-full object-cover grayscale"
+              src="/Dinosaur_IMG_0508.JPG" 
+              alt="Ishaan Ahuja" 
+              className="w-full h-full object-cover block grayscale hover:grayscale-0 transition-all duration-700"
               referrerPolicy="no-referrer"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = "https://picsum.photos/seed/ishaan/800/800";
+                console.error("Personal photo failed to load. Please ensure Dinosaur_IMG_0508.JPG is uploaded to the public folder and is not an empty file.");
+              }}
             />
           </div>
         </div>
@@ -265,30 +281,31 @@ const About = () => {
         <div className="lg:col-span-7 flex flex-col justify-center">
           <div className="space-y-8">
             <p className="text-2xl md:text-3xl font-serif leading-snug">
-              As an artisan, I like to start from raw matter — and give life to an iconic product that makes your brand stand out, starting from a visual strategy that guide the client's vision — to reality.
+              I am a 1st-year student at Manipal Institute of Communication, specializing in Graphic Design and Digital Media Marketing. 
+              My creative journey is fueled by a passion for capturing the world through my lens and transforming ideas into visual reality using Adobe Photoshop and Illustrator.
             </p>
             
             <div className="grid grid-cols-2 gap-8 pt-8 border-t border-ink/10">
               <div>
                 <h4 className="text-xs font-bold uppercase tracking-widest mb-4 opacity-40">Core Skills</h4>
                 <ul className="space-y-2 text-sm font-medium uppercase tracking-wider">
-                  <li>Branding & Identity</li>
-                  <li>Digital Media</li>
-                  <li>UI/UX Design</li>
-                  <li>Motion Graphics</li>
-                  <li>Art Direction</li>
+                  <li>Photography</li>
+                  <li>Adobe Photoshop</li>
+                  <li>Adobe Illustrator</li>
+                  <li>AI Video Production</li>
+                  <li>Digital Illustration</li>
                 </ul>
               </div>
               <div>
                 <h4 className="text-xs font-bold uppercase tracking-widest mb-4 opacity-40">Location</h4>
                 <p className="text-sm font-medium uppercase tracking-wider">
-                  Based in India <br />
+                  Based in Manipal, India <br />
                   Available Worldwide
                 </p>
                 <h4 className="text-xs font-bold uppercase tracking-widest mt-8 mb-4 opacity-40">Education</h4>
                 <p className="text-sm font-medium uppercase tracking-wider">
-                  Graphic Design & Digital Media Student <br />
-                  University of Design
+                  BA (Graphic Design & Digital Media Marketing) <br />
+                  Manipal Institute of Communication
                 </p>
               </div>
             </div>
@@ -299,13 +316,13 @@ const About = () => {
   );
 };
 
-const WorkShowcase = () => {
+const WorkShowcase = ({ onProjectClick }: { onProjectClick: (p: Project) => void }) => {
   return (
     <section className="py-24 px-6 bg-paper border-y border-ink/10">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-end mb-16">
           <h2 className="text-4xl md:text-6xl font-serif uppercase tracking-tighter">All Projects</h2>
-          <div className="text-sm font-mono opacity-40">/ 006</div>
+          <div className="text-sm font-mono opacity-40">/ 007</div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
@@ -316,7 +333,8 @@ const WorkShowcase = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx % 2 * 0.2 }}
               viewport={{ once: true }}
-              className={`flex flex-col ${idx % 2 !== 0 ? 'md:mt-24' : ''}`}
+              className={`flex flex-col group cursor-pointer ${idx % 2 !== 0 ? 'md:mt-24' : ''}`}
+              onClick={() => onProjectClick(project)}
             >
               <div className="relative group overflow-hidden border border-ink/5">
                 <img 
@@ -381,13 +399,13 @@ const Contact = () => {
           </div>
           <span className="text-sm font-bold uppercase tracking-widest">Email Me</span>
         </a>
-        <a href="#" className="group flex flex-col items-center gap-4">
+        <a href="https://www.linkedin.com/in/ishaan-ahuja-11a3b1336/" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center gap-4">
           <div className="w-16 h-16 rounded-full border border-ink/20 flex items-center justify-center group-hover:bg-ink group-hover:text-paper transition-all">
             <Linkedin size={24} />
           </div>
           <span className="text-sm font-bold uppercase tracking-widest">LinkedIn</span>
         </a>
-        <a href="#" className="group flex flex-col items-center gap-4">
+        <a href="https://www.instagram.com/smalkeditz/" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center gap-4">
           <div className="w-16 h-16 rounded-full border border-ink/20 flex items-center justify-center group-hover:bg-ink group-hover:text-paper transition-all">
             <Instagram size={24} />
           </div>
@@ -403,16 +421,22 @@ const Footer = () => {
     <footer className="py-12 px-6 border-t border-ink/10">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="text-sm font-bold uppercase tracking-widest">
-          © 2024 Ishaan Ahuja
+          © 2026 Ishaan Ahuja
         </div>
         <div className="flex gap-8 text-xs font-medium uppercase tracking-widest opacity-60">
           <a href="#" className="hover:text-accent transition-colors">Privacy Policy</a>
           <a href="#" className="hover:text-accent transition-colors">Terms of Service</a>
         </div>
         <div className="flex gap-4">
-          <Github size={18} className="opacity-40 hover:opacity-100 cursor-pointer transition-opacity" />
-          <Linkedin size={18} className="opacity-40 hover:opacity-100 cursor-pointer transition-opacity" />
-          <Mail size={18} className="opacity-40 hover:opacity-100 cursor-pointer transition-opacity" />
+          <a href="https://github.com/ishaan-ahuja" target="_blank" rel="noopener noreferrer">
+            <Github size={18} className="opacity-40 hover:opacity-100 cursor-pointer transition-opacity" />
+          </a>
+          <a href="https://www.linkedin.com/in/ishaan-ahuja-11a3b1336/" target="_blank" rel="noopener noreferrer">
+            <Linkedin size={18} className="opacity-40 hover:opacity-100 cursor-pointer transition-opacity" />
+          </a>
+          <a href="mailto:ishaanahuja1212@gmail.com">
+            <Mail size={18} className="opacity-40 hover:opacity-100 cursor-pointer transition-opacity" />
+          </a>
         </div>
       </div>
     </footer>
@@ -420,19 +444,78 @@ const Footer = () => {
 };
 
 export default function App() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
   return (
     <div className="min-h-screen selection:bg-accent selection:text-white">
       <Navbar />
       <main>
         <Hero />
-        <FeaturedWork />
+        <FeaturedWork onProjectClick={setSelectedProject} />
         <About />
-        <WorkShowcase />
+        <WorkShowcase onProjectClick={setSelectedProject} />
         <CreativeHighlight />
         <Contact />
       </main>
       <Footer />
       
+      {/* Project Modal */}
+      <AnimatePresence>
+        {selectedProject && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedProject(null)}
+              className="absolute inset-0 bg-ink/90 backdrop-blur-md"
+            />
+            <motion.div 
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 50, scale: 0.9 }}
+              className="relative w-full max-w-4xl bg-paper text-ink overflow-hidden border border-ink/10 shadow-2xl"
+            >
+              <button 
+                onClick={() => setSelectedProject(null)}
+                className="absolute top-6 right-6 z-10 p-2 bg-paper border border-ink/10 hover:bg-ink hover:text-paper transition-colors"
+              >
+                <X size={20} />
+              </button>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2">
+                <div className="aspect-[4/5] bg-ink/5 overflow-hidden">
+                  {selectedProject.video ? (
+                    <video 
+                      src={selectedProject.video} 
+                      controls 
+                      autoPlay
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <img 
+                      src={selectedProject.image} 
+                      alt={selectedProject.title} 
+                      className="w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                  )}
+                </div>
+                <div className="p-8 md:p-12 flex flex-col justify-center">
+                  <span className="text-xs font-mono opacity-40 uppercase tracking-widest block mb-4">
+                    {selectedProject.year} / {selectedProject.category}
+                  </span>
+                  <h2 className="text-4xl md:text-5xl font-serif italic mb-6">{selectedProject.title}</h2>
+                  <p className="text-lg leading-relaxed opacity-70 mb-8">
+                    {selectedProject.description}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
       {/* Global Grain Overlay for texture */}
       <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-[9999] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
     </div>
