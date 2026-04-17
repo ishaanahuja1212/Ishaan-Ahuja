@@ -27,7 +27,7 @@ const PROJECTS: Project[] = [
     category: "Photography",
     description: "An exploration of natural light and urban architecture through high-contrast black and white photography.",
     image: "/light-shadow-main.jpg",
-    year: "2024",
+    year: "2025",
     featured: true
   },
   {
@@ -37,7 +37,7 @@ const PROJECTS: Project[] = [
     description: "A compelling short cinematic experience generated and edited using cutting-edge AI tools. Exploring the intersection of human emotion and machine learning.",
     image: "https://picsum.photos/seed/aifilm/1200/800",
     video: "/artificial-soul-video.mp4",
-    year: "2024",
+    year: "2026",
     featured: true
   },
   {
@@ -46,7 +46,7 @@ const PROJECTS: Project[] = [
     category: "Logo Design & Branding",
     description: "A clean, modern brand identity designed for the ACM Student Chapter at BMU, balancing academic professionalism with a tech-forward aesthetic.",
     image: "/acm-bmu-logo.png",
-    year: "2024",
+    year: "2025",
     featured: true
   },
   {
@@ -55,7 +55,7 @@ const PROJECTS: Project[] = [
     category: "Photography",
     description: "Capturing the serene warmth and spiritual resonance of a traditional Diya, focusing on the dance between flame and shadow.",
     image: "/diwali-main.jpg",
-    year: "2024"
+    year: "2025"
   },
   {
     id: 5,
@@ -63,7 +63,7 @@ const PROJECTS: Project[] = [
     category: "Photography",
     description: "A candid moment of joy found in the simple pleasure of a meal, highlighting colors and textures that evoke comfort.",
     image: "/meal-main.jpg",
-    year: "2024"
+    year: "2025"
   },
   {
     id: 6,
@@ -71,7 +71,7 @@ const PROJECTS: Project[] = [
     category: "Photography",
     description: "A visual representation of healing and empathy, focusing on the power of connection in a complex world.",
     image: "/touch-main.jpg",
-    year: "2024"
+    year: "2025"
   },
   {
     id: 7,
@@ -79,7 +79,7 @@ const PROJECTS: Project[] = [
     category: "Photography",
     description: "Capturing the energy and vibrant colors of urban nightlife through a lens that emphasizes motion and mood.",
     image: "/disco-main.jpeg",
-    year: "2024"
+    year: "2025"
   }
 ];
 
